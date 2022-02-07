@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
+  // useState for every text input
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -12,6 +13,7 @@ const ExpenseForm = (props) => {
   //     enteredDate: ''
   // });
 
+  // handle title change if any
   const titleChangeHandler = (e) => {
     setEnteredTitle(e.target.value);
     // setUserInput({
@@ -23,6 +25,7 @@ const ExpenseForm = (props) => {
     // });
   };
 
+  // handle amount change if any
   const amountChangeHandler = (e) => {
     setEnteredAmount(e.target.value);
     // setUserInput({
@@ -31,6 +34,7 @@ const ExpenseForm = (props) => {
     // });
   };
 
+  // handle date change if any
   const dateChangeHandler = (e) => {
     setEnteredDate(e.target.value);
     // setUserInput({
@@ -39,16 +43,21 @@ const ExpenseForm = (props) => {
     // });
   };
 
+  // handle form submission
   const submitHandler = (e) => {
     e.preventDefault();
 
+    // store values in obj
     const expenseData = {
       title: enteredTitle,
       amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
+    // pass data to parent
     props.onSaveExpenseData(expenseData);
+
+    // clear the form after submission
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
