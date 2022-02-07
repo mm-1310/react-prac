@@ -5,8 +5,10 @@ import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 
 const NewExpense = (props) => {
+  // state for alternate button and form layout
   const [isEditing, setIsEditing] = useState(false)
 
+  // assign ID and pass data to parent
   const onSaveExpenseDataHanlder = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
@@ -17,10 +19,12 @@ const NewExpense = (props) => {
     setIsEditing(false);
   };
 
+  // show form
   const startEditingHandler = () => {
     setIsEditing(true);
   };
 
+  //show Add New Expense button
   const stopEditingHandler = () => {
     setIsEditing(false);
   };
